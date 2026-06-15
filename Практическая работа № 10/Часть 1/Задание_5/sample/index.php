@@ -11,7 +11,6 @@
     <hr>
     <h2>Укажите критерии поиска</h2>
 
-    <!-- action указывает на server.php, метод POST -->
     <form action="server.php" method="post">
         Представьтесь: <input type="text" name="name"><p>
         

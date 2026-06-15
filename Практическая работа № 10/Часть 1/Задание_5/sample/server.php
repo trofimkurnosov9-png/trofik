@@ -9,13 +9,8 @@
 <h2>## Обработчик формы</h2>
 
 <?php
-// Проверяем, были ли данные отправлены методом POST
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    
-    // Получаем имя пользователя
     $name = isset($_POST['name']) ? trim($_POST['name']) : '';
-    
-    // Формируем массив только с критериями поиска (brand, os, ssd)
     $searchCriteria = [];
     
     if (isset($_POST['brand']) && !empty($_POST['brand'])) {
@@ -29,14 +24,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if (isset($_POST['ssd']) && !empty($_POST['ssd'])) {
         $searchCriteria['ssd'] = $_POST['ssd'];
     }
-    
-    // Преобразуем массив критериев в JSON-строку
     $jsonString = json_encode($searchCriteria, JSON_UNESCAPED_UNICODE);
-    
-    // Кодируем JSON-строку для использования в URL (строка запроса)
     $encodedJson = urlencode($jsonString);
-    
-    // Выводим приветствие
     if (!empty($name)) {
         echo "<p>Здравствуйте, $name!</p>";
     }
